@@ -27,7 +27,16 @@ def create_graph():
 
 
 def load_graph():
-    pass
+    file = open('grafo.txt', 'r')
+    graph = {}
+
+    qtd_vertices = file.readline()
+    print(f'\n\tqtd_vertices: {qtd_vertices}')
+    file.close()
+
+    print('\n\tGrafo carregado com sucesso!\n')
+    # for line in file:
+    #     line = line.replace('\n', '').split(,)
 
 
 def save_graph(graph):
