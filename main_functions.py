@@ -28,15 +28,25 @@ def create_graph():
 
 def load_graph():
     file = open('grafo.txt', 'r')
+    qtd_vertices = int(file.readline())
     graph = {}
 
-    qtd_vertices = file.readline()
-    print(f'\n\tqtd_vertices: {qtd_vertices}')
-    file.close()
+    # writing vertices in graph
+    for i in range(qtd_vertices):
+        graph[i+1] = []
 
+    for line in file:
+        line.split('\n')
+
+        v1 = int(line[0])
+        v2 = int(line[2])
+
+        graph[v1].append((v1, v2))
+
+    file.close()
     print('\n\tGrafo carregado com sucesso!\n')
-    # for line in file:
-    #     line = line.replace('\n', '').split(,)
+
+    return graph
 
 
 def save_graph(graph):
@@ -44,25 +54,43 @@ def save_graph(graph):
     stream = list()
 
     qtd_vertices = str(len(graph.keys()))
-    stream.append(qtd_vertices+'\n\n')
+    stream.append(qtd_vertices+'\n')
 
-    for i in graph.values():
-        for j in range(len(i)):
-            edge = str(i[j])
-            edge.replace('(', '')
-            edge.replace(')', '')
-            edge.replace(' ', '')
-            edge += '\n'
-            stream.append(edge)
+    for edges in graph.values():
+        for edge in range(len(edges)):
+
+            line = str(edges[edge])
+
+            # remove stuff
+            line = line.replace(")", "")
+            line = line.replace("(", "")
+            line = line.replace(" ", "")
+
+            line += '\n'
+
+            stream.append(line)
 
     file.writelines(stream)
     file.close()
 
-    print(f'\n\tGrafo salvo com sucesso! ^-^')
+    print(f'\n\tGrafo salvo com sucesso!')
 
 
 def adjacency_matrix(graph):
-    pass
+    qtd_vertices = int(len(graph.keys()))
+    # create empty matrix
+    matrix = [[0 for _ in range(qtd_vertices)] for _ in range(qtd_vertices)]
+
+    for i in graph.values():
+        for j in range(len(i)):
+            edge = i[j]
+            v1 = edge[0]
+            v2 = edge[1]
+            # print(f'v1: {v1}, v2: {v2}')
+            print(edge)
+            matrix[v1-1][v2-1] = 1
+
+    print(f'\n\tMATRIX:\n{matrix}')
 
 
 def incidence_matrix(graph):

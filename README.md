@@ -7,7 +7,7 @@ Implementações em Python da disciplina Teoria dos Grafos
 ## main functions
 
 - [x] create_graph
-- [ ] load_graph
+- [x] load_graph
 - [x] save_graph
 - [ ] adjacency_matrix
 - [ ] incidence_matrix
@@ -21,6 +21,6 @@ Implementações em Python da disciplina Teoria dos Grafos
 - [ ] is_pseudo
 - [ ] is_connected
 - [ ] is_disconnected
-- [ ] is_simple
-- [ ] is_simple
-- [ ] is_simple
+- [ ] is_complete
+- [ ] is_eulerian
+- [ ] is_hamiltonian
