@@ -9,7 +9,7 @@ Implementações em Python da disciplina Teoria dos Grafos
 - [x] create_graph
 - [x] load_graph
 - [x] save_graph
-- [ ] adjacency_matrix
+- [x] adjacency_matrix
 - [ ] incidence_matrix
 - [ ] adjacency_list
 - [ ] show

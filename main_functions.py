@@ -78,19 +78,26 @@ def save_graph(graph):
 
 def adjacency_matrix(graph):
     qtd_vertices = int(len(graph.keys()))
+
     # create empty matrix
     matrix = [[0 for _ in range(qtd_vertices)] for _ in range(qtd_vertices)]
 
     for i in graph.values():
         for j in range(len(i)):
+
             edge = i[j]
-            v1 = edge[0]
-            v2 = edge[1]
-            # print(f'v1: {v1}, v2: {v2}')
-            print(edge)
+
+            v1 = int(edge[0])
+            v2 = int(edge[1])
+
             matrix[v1-1][v2-1] = 1
 
-    print(f'\n\tMATRIX:\n{matrix}')
+    print(f'\n\tMatriz de Adjacência:\n')
+
+    for i in matrix:
+        print(f'\t{i}')
+
+    return matrix
 
 
 def incidence_matrix(graph):
