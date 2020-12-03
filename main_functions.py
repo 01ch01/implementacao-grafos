@@ -101,7 +101,16 @@ def adjacency_matrix(graph):
 
 
 def incidence_matrix(graph):
-    pass
+    qtd_vertices = int(len(graph.keys()))
+    edges = []
+
+    for i in graph.values():
+        for j in range(len(i)):
+            edge = i[j]
+            edges.append(edge)
+
+    print(f'Quantidade de vértices: {qtd_vertices}')
+    print(f'edges:\n{edges}')
 
 
 def adjacency_list(graph):
@@ -110,13 +119,7 @@ def adjacency_list(graph):
 
 def show(graph):
     clear_console()
-    # print(f'graph.items(): {graph.items()}')
 
-    for i in graph.values():
-        for j in range(len(i)):
-            print(i[j])
-
-    print(f'\n\tQuantidade de vértices: {len(graph.keys())}')
-    # print(f'Vértice\t\tAresta')
-    # for i, j in graph.items():
-    #     print(f'{i}\t\t{j}')
+    print(f'  Vértice    Aresta(s)\n')
+    for i, j in graph.items():
+        print(f'\t{i}: {j}')
