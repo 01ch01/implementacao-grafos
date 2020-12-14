@@ -16,12 +16,14 @@ def create_graph():
         print('\n*** Digite "-1" para terminar a criação do grafo ***\n')
 
         v1 = int(input('Insira um vértice: '))
+
         if(v1 == -1):
             break
+
         v2 = int(input('Insira o vértice que se conecta: '))
 
         graph[v1].append((v1, v2))
-        graph[v2].append((v2, v1))
+        # graph[v2].append((v2, v1))
 
     return graph
 
@@ -76,6 +78,15 @@ def save_graph(graph):
     print(f'\n\tGrafo salvo com sucesso!')
 
 
+def get_vertices(graph):
+    vertices = []
+
+    for vertex in graph.keys():
+        vertices.append(vertex)
+
+    return vertices
+
+
 def get_edges(graph):
     edges = []
 
@@ -88,17 +99,19 @@ def get_edges(graph):
 
 
 def adjacency_matrix(graph):
-    qtd_vertices = int(len(graph.keys()))
-
-    # create empty matrix
-    matrix = [[0 for _ in range(qtd_vertices)] for _ in range(qtd_vertices)]
-
+    vertices = get_vertices(graph)
     edges = get_edges(graph)
+
+    matrix = [[0 for _ in vertices] for _ in vertices]
 
     for edge in edges:
         v1 = int(edge[0])
         v2 = int(edge[1])
+
         matrix[v1-1][v2-1] = 1
+
+        # mirror diagonals
+        matrix[v2-1][v1-1] = 1
 
     print(f'\n\tMatriz de Adjacência:\n')
 
@@ -109,11 +122,32 @@ def adjacency_matrix(graph):
 
 
 def incidence_matrix(graph):
-    qtd_vertices = int(len(graph.keys()))
+    vertices = get_vertices(graph)
     edges = get_edges(graph)
 
-    print(f'Quantidade de vértices: {qtd_vertices}')
-    print(f'edges:\n{edges}')
+    matrix = [[0 for _ in edges] for _ in vertices]
+
+    for vertex in vertices:
+        count = 0
+        for edge in edges:
+
+            if(vertex in edge):
+                matrix[(vertex-1)][count] = 1
+
+            elif (edge[0] == vertex and edge[1] == vertex):
+                matrix[(vertex-1)][count] = 2
+
+            else:
+                matrix[(vertex-1)][count] = 0
+
+            count += 1
+
+    print(f'\n\tMatriz de Incidência:\n')
+
+    for i in matrix:
+        print(f'\t{i}')
+
+    return matrix
 
 
 def adjacency_list(graph):
