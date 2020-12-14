@@ -115,8 +115,8 @@ def adjacency_matrix(graph):
 
     print(f'\n\tMatriz de Adjacência:\n')
 
-    for i in matrix:
-        print(f'\t{i}')
+    for row in matrix:
+        print(f'\t{row}')
 
     return matrix
 
@@ -129,6 +129,7 @@ def incidence_matrix(graph):
 
     for vertex in vertices:
         count = 0
+
         for edge in edges:
 
             if(vertex in edge):
@@ -144,14 +145,35 @@ def incidence_matrix(graph):
 
     print(f'\n\tMatriz de Incidência:\n')
 
-    for i in matrix:
-        print(f'\t{i}')
+    for row in matrix:
+        print(f'\t{row}')
 
     return matrix
 
 
 def adjacency_list(graph):
-    pass
+    vertices = get_vertices(graph)
+    edges = get_edges(graph)
+    adjacency_list = {}
+
+    for vertex in vertices:
+        neighbors = []
+
+        for edge in edges:
+            if (vertex in edge):
+
+                neighbor = edge[1 if(vertex == edge[0]) else 0]
+
+                neighbors.append(neighbor)
+
+        adjacency_list[vertex] = neighbors
+
+    print(f'\n\tLista de Adjacência:\n')
+
+    for row in adjacency_list.items():
+        print(row)
+
+    return adjacency_list
 
 
 def show(graph):

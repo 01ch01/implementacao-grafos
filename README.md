@@ -11,7 +11,7 @@ Implementações em Python da disciplina Teoria dos Grafos
 - [x] save_graph
 - [x] adjacency_matrix
 - [x] incidence_matrix
-- [ ] adjacency_list
+- [x] adjacency_list
 - [x] show
 
 ## verify functions
