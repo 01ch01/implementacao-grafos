@@ -163,7 +163,6 @@ def adjacency_list(graph):
 
 
 def show(graph):
-    clear_console()
 
     print(f'   Vértice\tAresta(s)\n')
     for vertex, edge in graph.items():

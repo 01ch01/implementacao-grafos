@@ -21,6 +21,6 @@ Implementações em Python da disciplina Teoria dos Grafos
 - [x] is_pseudo
 - [x] is_connected
 - [x] is_disconnected
-- [ ] is_complete
+- [x] is_complete
 - [ ] is_eulerian
 - [ ] is_hamiltonian

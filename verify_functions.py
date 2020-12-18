@@ -76,7 +76,18 @@ def is_disconnected(graph):
 
 
 def is_complete(graph):
-    pass
+    matrix = adjacency_matrix(graph)
+    adjacency = []
+    count = 0
+
+    for i in matrix:
+        adjacency += i[count+1:]
+        count += 1
+
+    if 0 in adjacency:
+        return False
+    else:
+        return True
 
 
 def is_eulerian(graph):

@@ -134,7 +134,11 @@ def verify_menu(graph):
             print(f'\n\tEste grafo NÃO é desconexo')
 
     if verify_option == 6:
-        is_complete(graph)
+
+        if is_complete(graph):
+            print(f'\n\tEste grafo é completo')
+        else:
+            print(f'\n\tEste grafo NÃO é completo')
 
     if verify_option == 7:
         is_eulerian(graph)
