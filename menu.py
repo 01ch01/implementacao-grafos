@@ -77,9 +77,11 @@ def main_menu():
 
 def verify_menu(graph):
     clear_console()
-    print(verify_menu_text)
 
+    print(verify_menu_text)
     verify_option = int(input('Escolha uma opção: '))
+
+    clear_console()
 
     if verify_option == 1:
         is_simple(graph)

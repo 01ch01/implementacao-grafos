@@ -17,7 +17,7 @@ Implementações em Python da disciplina Teoria dos Grafos
 ## verify functions
 
 - [x] is_simple
-- [ ] is_multi
+- [x] is_multi
 - [ ] is_pseudo
 - [ ] is_connected
 - [ ] is_disconnected
