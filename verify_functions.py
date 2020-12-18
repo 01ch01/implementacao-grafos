@@ -1,4 +1,4 @@
-from main_functions import get_edges
+from main_functions import adjacency_matrix, get_edges, get_vertices
 
 
 def is_simple(graph):
@@ -18,10 +18,8 @@ def is_simple(graph):
             unique_edges.add(edge)
 
         if loop or is_inverted or same_edge:
-            print(f'\n\tO grafo NÃO é simples')
             return False
 
-    print(f'\n\tO grafo é simples')
     return True
 
 
@@ -42,11 +40,9 @@ def is_multi(graph):
             unique_edges.add(edge)
 
     if minimum_conditions >= 2:
-        print(f'\n\tEste grafo é multigrafo')
         return True
 
     else:
-        print(f'\n\tEste grafo NÃO é multigrafo')
         return False
 
 
@@ -56,19 +52,27 @@ def is_pseudo(graph):
     for edge in edges:
 
         if edge[0] == edge[1]:
-            print(f'\n\tEste grafo é um pseudografo')
             return True
 
-    print(f'\n\tEste grafo NÃO é um pseudografo')
     return False
 
 
 def is_connected(graph):
-    pass
+    adj_matrix = adjacency_matrix(graph)
+
+    for row in adj_matrix:
+        if not 1 in row:
+            return False
+
+    return True
 
 
 def is_disconnected(graph):
-    pass
+
+    if not is_connected(graph):
+        return True
+    else:
+        return False
 
 
 def is_complete(graph):

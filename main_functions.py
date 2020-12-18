@@ -113,11 +113,6 @@ def adjacency_matrix(graph):
         # mirror diagonals
         matrix[v2-1][v1-1] = 1
 
-    print(f'\n\tMatriz de Adjacência:\n')
-
-    for row in matrix:
-        print(f'\t{row}')
-
     return matrix
 
 
@@ -144,11 +139,6 @@ def incidence_matrix(graph):
             matrix[(vertex-1)][count] = value
             count += 1
 
-    print(f'\n\tMatriz de Incidência:\n')
-
-    for row in matrix:
-        print(f'\t{row}')
-
     return matrix
 
 
@@ -168,11 +158,6 @@ def adjacency_list(graph):
                 neighbors.append(neighbor)
 
         adjacency_list[vertex] = neighbors
-
-    print(f'\n\tLista de Adjacência:\n')
-
-    for row in adjacency_list.items():
-        print(row)
 
     return adjacency_list
 
