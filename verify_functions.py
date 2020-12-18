@@ -42,16 +42,25 @@ def is_multi(graph):
             unique_edges.add(edge)
 
     if minimum_conditions >= 2:
-        print(f'Este grafo é multigrafo')
+        print(f'\n\tEste grafo é multigrafo')
         return True
 
     else:
-        print(f'Este grafo NÃO é multigrafo')
+        print(f'\n\tEste grafo NÃO é multigrafo')
         return False
 
 
 def is_pseudo(graph):
-    pass
+    edges = get_edges(graph)
+
+    for edge in edges:
+
+        if edge[0] == edge[1]:
+            print(f'\n\tEste grafo é um pseudografo')
+            return True
+
+    print(f'\n\tEste grafo NÃO é um pseudografo')
+    return False
 
 
 def is_connected(graph):
