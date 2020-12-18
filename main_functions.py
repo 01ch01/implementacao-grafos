@@ -132,15 +132,16 @@ def incidence_matrix(graph):
 
         for edge in edges:
 
-            if(vertex in edge):
-                matrix[(vertex-1)][count] = 1
+            if(edge[0] == vertex and edge[1] == vertex):
+                value = 2
 
-            elif (edge[0] == vertex and edge[1] == vertex):
-                matrix[(vertex-1)][count] = 2
+            elif (vertex in edge):
+                value = 1
 
             else:
-                matrix[(vertex-1)][count] = 0
+                value = 0
 
+            matrix[(vertex-1)][count] = value
             count += 1
 
     print(f'\n\tMatriz de Incidência:\n')
